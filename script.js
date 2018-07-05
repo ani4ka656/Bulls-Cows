@@ -80,6 +80,7 @@ function play() {
        				cows += 1;
     			}
       			document.getElementById('message').innerHTML="Bulls: " + bulls + " & Cows: " + cows;
+                document.getElementById('number').innerHTML=guess;
 
     		} else if (guess === hidden) {
       			document.getElementById('message').innerHTML="Congratulations!";
