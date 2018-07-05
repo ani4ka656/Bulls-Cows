@@ -1,9 +1,10 @@
 
 var clicks = 0,
  submit=document.getElementById('submit')
- submit.click(function() {
+ submit.addEventListener('click',function() {
 	clicks++;
-	document.getElementById('guesses').innerHTML(clicks);
+	console.log(clicks)
+	document.getElementById('guesses').textContent=clicks;
 });
 
 
@@ -20,11 +21,20 @@ function shuffleArray(array) {
 }
 
 var hidden=shuffleArray(numbers).slice(0,4).join('');
-      console.log(hidden);
+console.log(hidden);
+if(hidden[0] == 0){
+	hidden=numbers.slice(1,5).join('');
+	console.log(hidden);
+}
+   
+  	// console.log(numbers);
 
- function play() {
+submit.addEventListener('click', play);
+function play() {
+
 
  	var guess = document.getElementById('guess').value;
+ 	//console.log(guess)
 
   	if(guess){
   		var arr=guess.split(""),
@@ -34,53 +44,52 @@ var hidden=shuffleArray(numbers).slice(0,4).join('');
 
   		for(i=0;i<len;i++){
   			var num =parseInt(arr[i])
-  			//console.log(num)
-  			//console.log(typeof num)
-  			if( typeof num !=='number'){
+
+  			if(isNaN(num)){
   				alert('the number must contain only digits')
   			}
-  		}
+  		}//end for
 
 
   		if (guess.length != 4) {
   			alert("the number is too long or short");
-  		}
-
-  		else if (guess.charAt(0) === guess.charAt(1) || guess.charAt(0) === guess.charAt(2) || guess.charAt(0) === guess.charAt(3) || guess.charAt(1) === guess.charAt(2) || guess.charAt(1) === guess.charAt(3) || guess.charAt(2) === guess.charAt(3)) {
+  		} else if (guess.charAt(0) === guess.charAt(1) || guess.charAt(0) === guess.charAt(2) || guess.charAt(0) === guess.charAt(3) || guess.charAt(1) === guess.charAt(2) || guess.charAt(1) === guess.charAt(3) || guess.charAt(2) === guess.charAt(3)) {
   			alert("some of the digits repeat");
- 		}
-
-  		else {
+ 		} else {
 			var bulls = 0;
     		var cows = 0;
 			if (guess !== hidden) {
-      		if (guess.charAt(0) === hidden.charAt(0)) {
-        	bulls += 1;
-    	} else if (guess.charAt(0) === hidden.charAt(1) || guess.charAt(0) === hidden.charAt(2) || guess.charAt(0) === hidden.charAt(3)) {
-        	cows += 1;
-     	}
-     	if (guess.charAt(1) === hidden.charAt(1)) {
-        	bulls += 1;
-    	} else if (guess.charAt(1) === hidden.charAt(0) || guess.charAt(1) === hidden.charAt(2) || guess.charAt(1) === hidden.charAt(3)) {
-        	cows += 1;
-    	}
-    	if (guess.charAt(2) === hidden.charAt(2)) {
-        	bulls += 1;
-    	} else if (guess.charAt(2) === hidden.charAt(0) || guess.charAt(2) === hidden.charAt(1) || guess.charAt(2) === hidden.charAt(3)) {
-        	cows += 1;
-    	}
-    	if (guess.charAt(3) === hidden.charAt(3)) {
-        	bulls += 1;
-    	} else if (guess.charAt(3) === hidden.charAt(0) || guess.charAt(3) === hidden.charAt(1) || guess.charAt(3) === hidden.charAt(2)) {
-       		cows += 1;
-    	}
-      	document.getElementById('message').innerHTML="Bulls: " + bulls + " & Cows: " + cows;
-    	} else if (guess === hidden) {
-      	document.getElementById('message').innerHTML="Congratulations!";
-      	document.getElementById('submit').style.display = 'none';
-    	}
-    }
-}else{
+      			if (guess.charAt(0) === hidden.charAt(0)) {
+        			bulls += 1;
+    			} else if (guess.charAt(0) === hidden.charAt(1) || guess.charAt(0) === hidden.charAt(2) || guess.charAt(0) === hidden.charAt(3)) {
+        			cows += 1;
+     			}
+     			if (guess.charAt(1) === hidden.charAt(1)) {
+        			bulls += 1;
+    			} else if (guess.charAt(1) === hidden.charAt(0) || guess.charAt(1) === hidden.charAt(2) || guess.charAt(1) === hidden.charAt(3)) {
+        			cows += 1;
+    			}
+    			if (guess.charAt(2) === hidden.charAt(2)) {
+        			bulls += 1;
+    			} else if (guess.charAt(2) === hidden.charAt(0) || guess.charAt(2) === hidden.charAt(1) || guess.charAt(2) === hidden.charAt(3)) {
+        			cows += 1;
+    			}
+    			if (guess.charAt(3) === hidden.charAt(3)) {
+        			bulls += 1;
+    			} else if (guess.charAt(3) === hidden.charAt(0) || guess.charAt(3) === hidden.charAt(1) || guess.charAt(3) === hidden.charAt(2)) {
+       				cows += 1;
+    			}
+      			document.getElementById('message').innerHTML="Bulls: " + bulls + " & Cows: " + cows;
+
+    		} else if (guess === hidden) {
+      			document.getElementById('message').innerHTML="Congratulations!";
+      			document.getElementById('submit').style.display = 'none';
+
+    		}//end guess hidden
+    	}//if guess length === 4
+	}else{
 		alert('you must enter a number')
-	}
+	}//end if guess
+
+	document.getElementById('guess').value = '';
 }
