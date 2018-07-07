@@ -17,9 +17,9 @@ body {
 @import url('https://fonts.googleapis.com/css?family=Damion|Muli:400,600');
 #form{	
 	/*margin-top: 40%;*/
-	margin: 10% auto;
+	margin: 5% auto;
 	/*background: #C883EF;*/
-	background: url(wooden.jpg); 
+	background: url(wooden.png); 
 	width: 500px;
 	height: 500px;
 	border: 1px purple solid;
