@@ -7,7 +7,7 @@ html{
 }
 body {
 	width: 100%;
-	background: url(36627166_1894783737245932_506445934905786368_n.png) no-repeat center center fixed; 
+	background: url(img/36627166_1894783737245932_506445934905786368_n.png) no-repeat center center fixed; 
 	background-size: cover;
 }
 #wrapper {
@@ -22,7 +22,7 @@ a {
 	/*margin-top: 40%;*/
 	margin: 5% auto;
 	/*background: #C883EF;*/
-	background: url(wooden.png); 
+	background: url(img/wooden.png); 
 	width: 450px;
 	height: 500px;
 	border: 1px purple solid;
