@@ -9,11 +9,11 @@ var clicks = 0,
     rules.style.display= "none";
 btn.addEventListener('mouseenter', function(){             
     rules.style.display= "block";
-        message.style.display= "none";
-        guesses.style.display= "none";
-        number.style.display= "none";
-        text.style.display= "none";
-        submit.style.display= "none";
+    message.style.display= "none";
+    guesses.style.display= "none";
+    number.style.display= "none";
+    text.style.display= "none";
+    submit.style.display= "none";
 });
 btn.addEventListener('mouseout', function(){ 
     rules.style.display= "none";
@@ -66,8 +66,7 @@ function play() {
   		}//end for
         if(!flag){
             alert('The number must contain only digits')
-        }
-        if (guess.charAt(0) === '0') {
+        } else if (guess.charAt(0) === '0') {
             alert("The number imust not begin with zero/0!");
         } else if (guess.length < 4) {
   			alert("The number is too short!");
