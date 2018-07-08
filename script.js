@@ -25,7 +25,6 @@ btn.addEventListener('mouseout', function(){
 
 });
 var numbers = [0,1,2,3,4,5,6,7,8,9];
-    // flag = true;
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
@@ -48,7 +47,7 @@ if(hidden[0] == 0){
 submit.addEventListener('click', play);
 function play() {
     var guess = document.getElementById('guess').value;
-
+    var flag = true;
  	//console.log(guess)
 
   	if(guess){
@@ -65,6 +64,9 @@ function play() {
                // alert('The number must contain only digits')
   			}
   		}//end for
+        if(!flag){
+            alert('The number must contain only digits')
+        }
         if (guess.charAt(0) === '0') {
             alert("The number imust not begin with zero/0!");
         } else if (guess.length < 4) {
@@ -122,8 +124,6 @@ function play() {
 	}else{
 		alert('You must enter a number')
 	}//end if guess
-    if(!flag){
-        alert('The number must contain only digits')
-    }
+    
 	document.getElementById('guess').value = '';
 }
