@@ -1,8 +1,31 @@
 
 var clicks = 0,
     submit=document.getElementById('submit'),
-    numbers = [0,1,2,3,4,5,6,7,8,9];
+    btn = document.getElementById('btn'),
+    text = document.getElementById('text'),
+    rules = document.getElementById('rules'),
+    message = document.getElementById('message'),
+    guesses =  document.getElementById('guesses'),
+    number =  document.getElementById('number')
+    rules.style.display= "none";
+btn.addEventListener('mouseenter', function(){             
+    rules.style.display= "block";
+        message.style.display= "none";
+        guesses.style.display= "none";
+        number.style.display= "none";
+        text.style.display= "none";
+        submit.style.display= "none";
+});
+btn.addEventListener('mouseout', function(){ 
+    rules.style.display= "none";
+    message.style.display= "block";
+    guesses.style.display= "block";
+    number.style.display= "block";
+    text.style.display= "block";
+    submit.style.display= "block";
 
+});
+var numbers = [0,1,2,3,4,5,6,7,8,9];
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
@@ -82,10 +105,10 @@ function play() {
                 document.getElementById('number').innerHTML="The number: " + guess;
 
     		} else if (guess === hidden) {
-      			document.getElementById('message').innerHTML="Congratulations!";
-                document.getElementById('message').setAttribute('id', 'gameover');
-                document.getElementById('number').innerHTML="Your number: " + guess;
-      			document.getElementById('submit').style.display = 'none';
+      			message.innerHTML="Congratulations!";
+                message.setAttribute('id', 'gameover');
+                number.innerHTML="Your number: " + guess;
+      			submit.style.display = 'none';
                 var retry=document.createElement('a');
                 retry.setAttribute('href','index.html');
                 retry.setAttribute('id', 'gameover');
