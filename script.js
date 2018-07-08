@@ -42,10 +42,13 @@ function play() {
   			}
   		}//end for
 
-
-  		if (guess.length != 4) {
-  			alert("The number is too long or short");
-  		} else if (guess.charAt(0) === guess.charAt(1) || guess.charAt(0) === guess.charAt(2) || guess.charAt(0) === guess.charAt(3) || guess.charAt(1) === guess.charAt(2) || guess.charAt(1) === guess.charAt(3) || guess.charAt(2) === guess.charAt(3)) {
+        if (guess.charAt(0) === '0') {
+            alert("The number imust not begin with zero/0!");
+        } else if (guess.length < 4) {
+  			alert("The number is too short!");
+  		} else if (guess.length > 4) {
+            alert("The number is too long!");
+        } else if (guess.charAt(0) === guess.charAt(1) || guess.charAt(0) === guess.charAt(2) || guess.charAt(0) === guess.charAt(3) || guess.charAt(1) === guess.charAt(2) || guess.charAt(1) === guess.charAt(3) || guess.charAt(2) === guess.charAt(3)) {
   			alert("Some of the digits repeat");
  		} else {
             clicks++;
