@@ -68,7 +68,7 @@ p:nth-of-type(3){
 }
 #message, #guesses, #number,a{ 
 	display: block;
-	margin: 0% auto ;
+	margin: 0 auto ;
 	text-align: center;
 	font-size: 30px
 }
