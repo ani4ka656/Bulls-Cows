@@ -1,4 +1,3 @@
-
 var clicks = 0,
     submit=document.getElementById('submit'),
     btn = document.getElementById('btn'),
@@ -26,6 +25,7 @@ btn.addEventListener('mouseout', function(){
 
 });
 var numbers = [0,1,2,3,4,5,6,7,8,9];
+    // flag = true;
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
@@ -61,10 +61,10 @@ function play() {
   			var num =parseInt(arr[i])
 
   			if(isNaN(num)){
-  				alert('The number must contain only digits')
+  				 flag = false;
+               // alert('The number must contain only digits')
   			}
   		}//end for
-
         if (guess.charAt(0) === '0') {
             alert("The number imust not begin with zero/0!");
         } else if (guess.length < 4) {
@@ -75,11 +75,11 @@ function play() {
   			alert("Some of the digits repeat");
  		} else {
             clicks++;
-            console.log(clicks)
+            //console.log(clicks)
             document.getElementById('guesses').textContent="Try: " + clicks;
             
 			var bulls = 0;
-    	   var cows = 0;
+    	    var cows = 0;
 			if (guess !== hidden) {
       			if (guess.charAt(0) === hidden.charAt(0)) {
         			bulls += 1;
@@ -109,6 +109,7 @@ function play() {
                 message.setAttribute('id', 'gameover');
                 number.innerHTML="Your number: " + guess;
       			submit.style.display = 'none';
+                btn.style.display = 'none';
                 var retry=document.createElement('a');
                 retry.setAttribute('href','index.html');
                 retry.setAttribute('id', 'gameover');
@@ -121,6 +122,8 @@ function play() {
 	}else{
 		alert('You must enter a number')
 	}//end if guess
-
+    if(!flag){
+        alert('The number must contain only digits')
+    }
 	document.getElementById('guess').value = '';
 }

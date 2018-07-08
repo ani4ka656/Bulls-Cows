@@ -7,7 +7,6 @@ html{
 }
 body {
 	width: 100%;
-	/*background: url(img/36627166_1894783737245932_506445934905786368_n.png) no-repeat center center fixed;*/ 
 	background: url(img/background.png) no-repeat center center fixed;
 	background-size: cover;
 }
@@ -24,11 +23,10 @@ a {
 	margin: 5% auto;
 	/*background: #C883EF;*/
 	background: url(img/wooden1.png); 
-	/*background: url(img/wooden1.png);*/
-	width: 450px;
+	width: 400px;
 	height: 500px;
 	/*border: 1px purple solid;*/
-	opacity: 50%;
+	/*opacity: 50%;*/
 }
 #play{
 	color: #702C07;
@@ -54,15 +52,16 @@ h3{
 
 }
 p{
-	margin: 5% 0 10% 0;
+	margin: 6% 0% 8% 0%;
 }
 p:nth-of-type(2){
-	margin: 0 0 7% 0;
+	margin: 0% 0% 7% 0%;
 }
 p:nth-of-type(3){
-	margin: 0% 0 7% 0;
+	margin: 0% 0 7% 0%;
 }
 #text{
+	margin-top: 10%;
 	line-height: 50%;
 	text-align: center;
 
@@ -81,7 +80,6 @@ input[type="text"]{
 	letter-spacing: 1px;
 	height: 30px;
 	line-height: 30px
-
 }
 
 
@@ -89,11 +87,8 @@ input[type="text"]{
 
 #submit{
 	background-color:#7892c2;
-	-moz-border-radius:16px;
-	-webkit-border-radius:16px;
 	border-radius:16px;
 	border:1px solid #4e6096;
-	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
@@ -140,7 +135,7 @@ button{
 	color:#ffffff;
 	font-family:Arial;
 	font-size:1.7rem;
-	padding:11px 3px;
+	padding:13px 3px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2f6627;
 }
